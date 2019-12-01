@@ -9,7 +9,7 @@
                 "${fileBasename}",
                 "-lncurses",
                 "-o",
-                "${fileBasenameNoExtension}"
+                "${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
