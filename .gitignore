@@ -1,5 +1,5 @@
 *.*
-/.vscode
+.vscode/
 !.gitattributes
 !.gitignore
 !readme.md
