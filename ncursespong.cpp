@@ -13,25 +13,25 @@ static void finish(int sig)
 static void processKeystroke(int c, int& x, int& y) {
     chtype player = '@';
     chtype space = ' ';
-    switch ((unsigned int) c) {
+    switch (c) {
         case KEY_UP:
-            (void) mvwaddch(stdscr, y, x, space);
-            (void) mvwaddch(stdscr, y - 1, x, player);
+            (void) mvwprintw(stdscr, y, x, "%c", space);
+            (void) mvwprintw(stdscr, y - 1, x, "%c", player);
             y -= 1;
             break;
         case KEY_DOWN:
-            (void) mvwaddch(stdscr, y, x, space);
-            (void) mvwaddch(stdscr, y + 1, x, player);
+            (void) mvwprintw(stdscr, y, x, "%c", space);
+            (void) mvwprintw(stdscr, y + 1, x, "%c", player);
             y += 1;
             break;
         case KEY_LEFT:
-            (void) mvwaddch(stdscr, y, x, space);
-            (void) mvwaddch(stdscr, y, x - 1, player);
+            (void) mvwprintw(stdscr, y, x, "%c", space);
+            (void) mvwprintw(stdscr, y, x - 1, "%c", player);
             x -= 1;
             break;
         case KEY_RIGHT:
-            (void) mvwaddch(stdscr, y, x, space);
-            (void) mvwaddch(stdscr, y, x + 1, player);
+            (void) mvwprintw(stdscr, y, x, "%c", space);
+            (void) mvwprintw(stdscr, y, x + 1, "%c", player);
             x += 1;
             break;
     }
@@ -45,7 +45,7 @@ static void ncursesInit() {
     keypad(stdscr, TRUE);  /* enable keyboard mapping */
     (void) nonl();         /* tell curses not to do NL->CR/NL on output */
     (void) cbreak();       /* take input chars one at a time, no wait for \n */
-    (void) noecho();         /* echo input - in color */
+    (void) echo();         /* echo input - in color */
     
     if (has_colors()) {
         start_color();
@@ -77,7 +77,6 @@ int main(int argc, char *argv[]) {
         int c = getch();     /* refresh, accept single keystroke of input */
         attrset(COLOR_PAIR(num % 8));
         num++;
-
         /* process the command keystroke */
         processKeystroke(c, currentX, currentY);
         if (c == 'Q') break;
