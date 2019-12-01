@@ -2,14 +2,14 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "Cygwin64 GCC.exe Build",
-            "command": "g++",
+            "label": "gcc Build",
+            "command": "gcc",
             "args": [
                 "-ggdb",
                 "${fileBasename}",
                 "-lncurses",
                 "-o",
-                "${fileBasenameNoExtension}.exe"
+                "${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
