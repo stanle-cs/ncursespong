@@ -1,2 +1,7 @@
-*.json
-ncursespong
+*.*
+!.gitattributes
+!.gitignore
+!readme.md
+!.gitkeep
+!*.cpp
+!*.c
