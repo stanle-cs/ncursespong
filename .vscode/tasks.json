@@ -1,0 +1,27 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Cygwin64 GCC.exe Build",
+            "command": "g++",
+            "args": [
+                "-ggdb",
+                "${fileBasename}",
+                "-lncurses",
+                "-o",
+                "${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
