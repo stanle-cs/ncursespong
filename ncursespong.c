@@ -126,16 +126,15 @@ int main(int argc, char *argv[]) {
         attrset(COLOR_PAIR(num % 8));
         num++;
         mvprintw(20, 20, "%d", num);
-        mvprintw(21, 20, "                                            ");
+        mvprintw(21, 20, "                ");
         mvprintw(21, 20, "%d %d - %d %d ", paddle.x, paddle.y, currentX, currentY);
         /* process the command keystroke */
         if (c != ERR) {
             processKeystroke(c, &currentX, &currentY, &paddle);
- 
             paddle.x = currentX;
             paddle.y = currentY;
             if (checkCollision(paddle, ball)) mvwprintw (stdscr, 23, 20, "hit!");
-            mvprintw(22, 20, "                                            ");
+            mvprintw(22, 20, "                     ");
             mvwprintw (stdscr, 22, 20, "paddle: %d %d - ball: %d %d", paddle.x, paddle.y, ball.x, ball.y);
             if (c == 'Q') break;
         }
